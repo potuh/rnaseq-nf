@@ -1,0 +1,75 @@
+---
+name: "Guide for installation of nextflow on your local system and your working directory in Biomix"
+author: "Hemanth Potu"
+date: 5/14/2024
+---
+# To run nf-core/rnaseq pipeline, we must first install nextflow on our local system or Biomix
+# Caution: Nextflow was already installed on biomix but due some developments being added to the nextflow on biomix, we should not work on it. 
+# Instead, we could install nextflow in our home directory on biomix and could use it. I will give a step-by-step guidance here
+# First, let us install it on our local system.
+---
+# JAVA INSTALLATION
+# Nextflow requires Java to be installed on your system to run. It is recommended to use version 11 up to 21 of Java for nextflow.
+# I identified current version of java using:
+ java -version
+# I have a version 1.8.0_381. So, I installed Java 21 using following steps
+# The link below was used https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
+# I later selected a link for “macOS x64 DMG Installer”. MacOS can only install with .dmg files.
+# Go to downloads > select the .dmg file > install
+# I reverified the version of java using the code given above
+
+---
+# INSTALLATION OF NEXTFLOW IN MacOS
+# Executing the command in my terminal for installing nextflow 
+wget -qO- https://get.nextflow.io | bash
+
+# Sometimes a few systems might not have the command ‘wget’ installed. I faced this problem and nextflow provided an alternative with the ‘curl’ command.
+curl -s https://get.nextflow.io | bash
+
+# I ran this command to make it executable
+chmod +x nextflow
+
+# Then we have to ensure that the nextflow is in your $PATH. This allows us to run Nextflow from any directory without having to specify the full path to its executable.
+sudo mv /Users/hemanthpotu/nextflow /usr/local/bin/
+
+# Now, we should INSTALL DOCKER
+# Follow step by step procedures in the following link https://docs.docker.com/get-docker/
+# Check the installation of nextflow using the following command
+nextflow info
+
+---
+# INSTALLATION OF NEXTFLOW ON BIOMIX (IN YOUR WORKING DIRECTORY)
+# Asking the memory requirement to biomix 
+srun --pty bash
+
+# Nextflow creates an empty container (singularity in our case) and installs all the required software in it. Nextflow is a language. After installation, we have to tell Biomix where to look for it. This is in $PATH.
+# The $PATH looks up where any language is installed (nextflow, python anything) - So whenever you install a new language always think is it in my $PATH. One easy way around this is to make a folder where all your installs go and then link that folder in your $PATH.
+# Nextflow requires java versions 11 or later. On Biomix we have much updated version. So, we should use the following command to tell biomix to use version 11.
+export JAVA_CMD=/etc/alternatives/jre_11/bin/java
+
+# Since we are installing nextflow in my working directory, I should have a folder named ‘bin’ in my working directory. I installed nextflow in the bin folder of my working directory.
+mkdir bin
+cd bin
+
+# Now install,
+curl -s https://get.nextflow.io | bash
+
+# Check the installation
+nextflow -version # This code will give you version of nextflow installed on biomix but not in your working directory. We have to specify path to do that.
+
+# I am not specifying any Path because, I learnt that if I set /home/hemanthp/bin as my path, by default when I work all software will be called from here. So, instead i will call path each time when I run a code. It looks like this:
+/home/hemanthp/bin/nextflow -version
+
+# Try running the Nextflow “hello world” example to make sure that the tools are working properly.
+/home/hemanthp/bin/nextflow run hello
+
+# Once this is done you can run a profile test run, to make sure that everything is working fine.
+nextflow run nf-core/rnaseq -profile test,singularity --outdir /home/hemanthp
+
+
+
+
+
+
+
+
