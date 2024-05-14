@@ -1,0 +1,27 @@
+---
+title: "Guide for downloding rnaseq data from GEO using SRA toolkit in the Biomix"
+Author: "Hemanth Potu"
+date: 05/14/2024
+---
+# The data from rnaseq experiments will be submitted to data repositories like Gene Experssion Omnibus (GEO) by researchers worldwide.
+# If you want to replicate a work, you need to download data from GEO. Due to large size of datasets, it is not always possible to download the data directly.
+# Each GEO submission will have an accession number. Look into the publication and find the accession number which usually begins with "GSE".
+# Search for this accession in GEO. This will usually result in a page with the details of project in which this data was produced, authors, other metadata.
+# At the bottom of the GEO page, you can see a link to SRA Run Selector. 
+# If we click on the SRA Run Selector link, we will see a table of identifers for each of the samples. What we need are the SRA Run IDs, which start with the prefix “SRR”.
+# The SRA runs correspond to the actual sequencing files that we want to download in order to access the raw data.
+# Now let us understand how to download the fastq files of data using SRA toolkit.
+
+# Rule1: Never work on the main node of Biomix. 
+# To gain access to Bash shell on one of execution node for interactive work with linux command line, use the following SLURM command
+
+srun --pty bash
+
+# The above command will provide with default SLURM resources: 8GB of memory and 1 computing core. 
+# If more resources are required for your interactive SLURM session, they must be requested using one of the following arguments:
+#                 • "-c 4" requests 4 cores
+#                 • "--mem=16000" requests 16GB (16000MB) of memory
+# Note, that this arguments must precede "--pty bash" in the command line, so:
+
+srun -c4 --mem=16000 --pty bash
+
