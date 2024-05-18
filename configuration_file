@@ -3,3 +3,22 @@ title: "nextflow.config"
 author: "Hemanth Potu"
 date: "5/14/2024"
 ---
+This file contain information on how to talk to Biomix. Biomix speaks in a language called SLURM
+There are a lot of parameters that can be modifed and more information is here:
+
+https://www.nextflow.io/docs/latest/config.html
+
+'''{bash}
+# process tells nextflow what it needs to do so anything in between the { } it will do as one process
+process {
+# We are setting the language or executor to SLURM that Biomix runs.
+# If you are doing this on your laptop you want to change this to local.
+  executor = 'slurm'
+# SLURM batch scripts are submitted for unattended execution in the cluster
+  queue = 'batch'
+# Next we set the memory to 64GB this is how much RAM nextflow can use.
+  memory = '64 GB'
+# Forks are how many tasks nextflow can manage at once. If you want things to go faster you can have more forks!
+  maxForks = 4
+}
+'''
