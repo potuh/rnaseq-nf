@@ -1,3 +1,13 @@
+---
+title: "shell_script_NF_CORE_RNAseq"
+author: "Hemanth Potu"
+date: "05/18/2024"
+---
+A shell script is a bunch of bash commands that will be run in a row. We can also add other
+languages by calling them up. In this case we will also invoke nextflow.
+So basically you can think of the .sh file as a list of tasks to run the pipeline rather
+that typing them in one by one 
+''' {bash}
 #!/bin/bash
 #SBATCH -p batch
 #SBATCH --job-name=nfcore_rnaseq
@@ -25,3 +35,4 @@ echo "Here we go You've requested $SLURM_CPUS_ON_NODE core."
 --gencode \
 --email hemanthp@udel.edu \
 -c /home/hemanthp/nextflow1.config
+'''
