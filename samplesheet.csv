@@ -1,0 +1,5 @@
+﻿sample,fastq_1,fastq_2,strandedness
+C_2009329,/home/hemanthp/samples/SRR15852438/fastq/SRR15852438_pass_1.fastq.gz,/home/hemanthp/samples/SRR15852438/fastq/SRR15852438_pass_2.fastq.gz,auto
+C_1933414,/home/hemanthp/samples/SRR15852432/fastq/SRR15852432_pass_1.fastq.gz,/home/hemanthp/samples/SRR15852432/fastq/SRR15852432_pass_2.fastq.gz,auto
+T_2009329,/home/hemanthp/samples/SRR15852408/fastq/SRR15852408_pass_1.fastq.gz,/home/hemanthp/samples/SRR15852408/fastq/SRR15852408_pass_2.fastq.gz,auto
+T_1933414,/home/hemanthp/samples/SRR15852402/fastq/SRR15852402_pass_1.fastq.gz,/home/hemanthp/samples/SRR15852402/fastq/SRR15852402_pass_2.fastq.gz,auto
