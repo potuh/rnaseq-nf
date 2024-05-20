@@ -1,0 +1,7 @@
+﻿sample,fastq_1,fastq_2,strandedness
+lymphnode_4a,/work/binf-courses/binf694/project_1/raw_data/lymphnode/lymphnode_4a.s.fastq.gz,,auto
+lymphnode_4b,/work/binf-courses/binf694/project_1/raw_data/lymphnode/lymphnode_4b.s.fastq.gz,,auto
+lymphnode_5a,/work/binf-courses/binf694/project_1/raw_data/lymphnode/lymphnode_5a.s.fastq.gz,,auto
+bonemarrow_5a,/work/binf-courses/binf694/project_1/raw_data/bonemarrow/bonemarrow_5a.s.fastq.gz,,auto
+bonemarrow_6b,/work/binf-courses/binf694/project_1/raw_data/bonemarrow/bonemarrow_6b.s.fastq.gz,,auto
+bonemarrow_6c,/work/binf-courses/binf694/project_1/raw_data/bonemarrow/bonemarrow_6c.s.fastq.gz,,auto
